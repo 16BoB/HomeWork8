@@ -31,7 +31,7 @@ void Show2dArray(int[,] arr)
     }
 }
 
-int FindLargesSumElementsRow(int[,] arr)
+int FindMinimalSumElementsRow(int[,] arr)
 {
     int[] sumRow = new int[arr.GetLength(0)];
     int sum = 0;
@@ -74,4 +74,4 @@ int[,] myArr = CreateRandom2dArray(rows, columns, minValue, maxValue);
 
 Show2dArray(myArr);
 
-Console.WriteLine("The smallest sum of elements on a line: " + FindLargesSumElementsRow(myArr));
+Console.WriteLine("The smallest sum of elements on a line: " + FindMinimalSumElementsRow(myArr));
