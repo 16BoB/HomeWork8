@@ -4,36 +4,46 @@
 // 12 13 14 5
 // 11 16 15 6
 // 10 9 8 7
-int[,] GetSpire(int n)
+int[,] GetSpire(int n, int b)
 {
-    int[,] result = new int[n, n];
+    int[,] result = new int[n, b];
     int columns = result.GetLength(1);
     int rows = result.GetLength(0);
     int value = 1;
-    int count = 0;
-    while (value - 1 < n * n)
+    for (int i = 0; value <= n * b; i++)
     {
-        for (int j = count; j < columns - count; j++)
+        if (value <= n * b)
         {
-            result[count, j] = value;
-            value++;
+            for (int j = i; j < columns - i; j++)
+            {
+                result[i, j] = value;
+                value++;
+            }
         }
-        for (int k = count + 1; k < rows - count; k++)
+        if (value <= n * b)
         {
-            result[k, columns - (1 + count)] = value;
-            value++;
+            for (int k = i + 1; k < rows - i; k++)
+            {
+                result[k, columns - (1 + i)] = value;
+                value++;
+            }
         }
-        for (int m = columns - (2 + count); m >= count; m--)
+        if (value <= n * b)
         {
-            result[rows - (1 + count), m] = value;
-            value++;
+            for (int m = columns - (2 + i); m >= i; m--)
+            {
+                result[rows - (1 + i), m] = value;
+                value++;
+            }
         }
-        for (int s = rows - (2 + count); s >= count + 1; s--)
+        if (value <= n * b)
         {
-            result[s, count] = value;
-            value++;
+            for (int s = rows - (2 + i); s >= i + 1; s--)
+            {
+                result[s, i] = value;
+                value++;
+            }
         }
-        count++;
     }
     return result;
 }
@@ -54,6 +64,11 @@ int n;
 Console.WriteLine("Введите размерность массива");
 n = Convert.ToInt32(Console.ReadLine());
 
-int[,] myArr = GetSpire(n);
+int b;
+Console.WriteLine("Введите размерность массива");
+b = Convert.ToInt32(Console.ReadLine());
+
+
+int[,] myArr = GetSpire(n, b);
 
 Show2dArray(myArr);
