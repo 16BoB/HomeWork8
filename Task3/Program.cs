@@ -4,7 +4,7 @@
 // 12 13 14 5
 // 11 16 15 6
 // 10 9 8 7
-int[,] GetSpire(int n, int b)
+int[,] FillArraySpiral(int n, int b)
 {
     int[,] result = new int[n, b];
     int columns = result.GetLength(1);
@@ -60,15 +60,14 @@ void Show2dArray(int[,] arr)
     }
 }
 
-int n;
-Console.WriteLine("Введите размерность массива");
-n = Convert.ToInt32(Console.ReadLine());
-
-int b;
-Console.WriteLine("Введите размерность массива");
-b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter the number of rows in the array");
+int rows = Convert.ToInt32(Console.ReadLine());
 
 
-int[,] myArr = GetSpire(n, b);
+Console.WriteLine("Enter the number of elements in the array row");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+
+int[,] myArr = FillArraySpiral(rows, columns);
 
 Show2dArray(myArr);
