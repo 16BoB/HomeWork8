@@ -35,15 +35,19 @@ int FindLargesSumElementsRow (int[,] arr) {
         sumRow[i] = sum;
         sum = 0;
     }
-    int maxSumRow = sumRow[0];
+    int minSumRow = sumRow[0];
+    int minSumRowIndex = 0;
     for (int i = 0; i < sumRow.Length; i++) {
-        if (maxSumRow < sumRow[i]) maxSumRow = sumRow[i];
+        if (minSumRow > sumRow[i]) {
+            minSumRow = sumRow[i];
+            minSumRowIndex = i;
+        }
     }
-    return maxSumRow;
+    return minSumRowIndex; // Либо написать return minSumRowIndex + 1; чтобы возвращал номер строки удобный для пользователя
 }
 
 int[,] myArr = CreateRandom2dArray(5,3,1,9);
 
 Show2dArray(myArr);
 
-Console.WriteLine("Наибольшая сумма строки равна: " + FindLargesSumElementsRow(myArr));
+Console.WriteLine("Наименьшая сума елементов на строке: " + FindLargesSumElementsRow(myArr));
