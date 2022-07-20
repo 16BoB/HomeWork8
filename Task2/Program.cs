@@ -57,8 +57,21 @@ int FindLargesSumElementsRow(int[,] arr)
     return minSumRowIndex; // Либо написать return minSumRowIndex + 1; чтобы возвращал номер строки удобный для пользователя
 }
 
-int[,] myArr = CreateRandom2dArray(5, 3, 1, 9);
+Console.WriteLine("Enter the number of rows in the array");
+int rows = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the number of elements in the array row");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the minimum value in the array");
+int minValue = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the maximum value in the array");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+
+
+int[,] myArr = CreateRandom2dArray(rows, columns, minValue, maxValue);
 
 Show2dArray(myArr);
 
-Console.WriteLine("Наименьшая сума елементов на строке: " + FindLargesSumElementsRow(myArr));
+Console.WriteLine("The smallest sum of elements on a line: " + FindLargesSumElementsRow(myArr));
