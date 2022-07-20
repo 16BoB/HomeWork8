@@ -54,12 +54,27 @@ int[,] SortingRowsFromLargest(int[,] arr)
     return arr;
 }
 
-int[,] myArr = CreateRandom2dArray(3, 4, 1, 9);
+Console.WriteLine("Enter the number of rows in the array");
+int rows = Convert.ToInt32(Console.ReadLine());
 
+Console.WriteLine("Enter the number of elements in the array row");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the minimum value in the array");
+int minValue = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the maximum value in the array");
+int maxValue = Convert.ToInt32(Console.ReadLine());
+
+
+int[,] myArr = CreateRandom2dArray(rows, columns, minValue, maxValue);
+
+Console.WriteLine("Created array");
 Show2dArray(myArr);
 
 Console.WriteLine();
 
 SortingRowsFromLargest(myArr);
 
+Console.WriteLine("Sorted array");
 Show2dArray(myArr);
